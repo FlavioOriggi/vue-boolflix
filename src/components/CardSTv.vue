@@ -1,5 +1,9 @@
 <template>
-    <div class="card">
+    <div class="card">        
+        <div>
+            <img v-if="SerieTV.poster_path" :src="'https://image.tmdb.org/t/p/w342/' + SerieTV.poster_path" >
+            
+        </div>
         <div><span class="fw-bold">Titolo:</span> {{SerieTV.title}}</div>
         <div><span class="fw-bold">Titolo originale:</span> {{SerieTV.original_title}}</div>
         <div class="fw-bold d-flex">
@@ -11,7 +15,7 @@
             </div>
             
         </div>
-        <div><span class="fw-bold">Voto:</span> {{SerieTV.vote_average}}</div>            
+        <div><span class="fw-bold">Voto:</span> {{ starsVote }} </div>            
     </div>
 </template>
 
@@ -21,9 +25,17 @@ export default {
     props: ['SerieTV'],
     data(){
         return{
-            flagArr: ['en','es','it', 'us']
+            flagArr: ['en','es','it', 'us'],
+            getImage: '',
+            starsVote: ''
         }
-    }
+    },
+    methods: {
+        voteImage(){
+            this.starsVote = Math.round(this.vote / 2);          
+            return this.starsVote
+        }
+    },
 }
 </script>
 

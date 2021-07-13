@@ -1,7 +1,12 @@
 <template>
-    <div class="card">
+    <div class="card p-2">
+        
         <div><span class="fw-bold">Titolo:</span> {{movie.title}}</div>
         <div><span class="fw-bold">Titolo originale:</span> {{movie.original_title}}</div>
+        <div class="my-1">
+            <img :src="'https://image.tmdb.org/t/p/w342/' + movie.poster_path" >
+            
+        </div>
         <div class="fw-bold d-flex">
             
             <div class="me-2">Lingua: </div>
@@ -11,7 +16,7 @@
             </div>
             
         </div>
-        <div><span class="fw-bold">Voto:</span> {{movie.vote_average}}</div>            
+        <div><span class="fw-bold">Voto:</span> {{ starsVote }}</div>            
     </div>
 </template>
 
@@ -21,13 +26,23 @@ export default {
     props: ['movie'],
     data(){
         return{
-            flagArr: ['en','es','it', 'us']
+            flagArr: ['en','es','it', 'us'],            
+            starsVote: ''
         }
-    }
+    },
+    methods: {
+        getVote(){
+            this.starsVote = Math.round(this.vote / 2);            
+            return this.starsVote
+        }       
+    },
 }
 </script>
 
-<style>  
+<style> 
+img{
+    width: 10%;
+} 
 
 .flag{
     width: 15px;
