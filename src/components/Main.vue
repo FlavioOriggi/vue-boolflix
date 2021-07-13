@@ -1,23 +1,23 @@
 <template>
-  <main>
-      <div v-for="(movie, item) in moviesItem" :key="item" class="card-contenent">
-          <div class="card">
-              <p>Titolo: {{movie.title}}</p>
-              <p>Titolo originale: {{movie.original_title}}</p>
-              <p>Lingua: {{movie.original_language}}</p>
-              <p>Voto: {{movie.vote_average}}</p>
-          </div>          
-      </div>
-  </main>
+    <main>        
+        <div class="cards-contenent">
+            <h3>Films</h3>
+            <Card v-for="(item, index) in moviesItem" :key="index" :movie="item"/>
+        </div>
+    </main>
 </template>
 
 <script>
+import CardMovie from "@/components/CardMovie";
+
 export default {
     name: 'Main',
-    props:['moviesItem']
+    components: {
+        CardMovie,
+        // CardSeriesTv
+    }
 }
 </script>
 
-<style>    
-
+<style>
 </style>

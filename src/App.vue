@@ -30,7 +30,7 @@ export default{
       axios
         .get(this.urlApi, {
           params:{
-            api_key: 'c81548416aaaa14e591c85d4db9fdc1e',
+            api_key: 'd91be32ec828fa4f2c317ac78d3e0690',
             language: 'it-IT',
             query: this.textSearch
           }
@@ -49,4 +49,6 @@ export default{
 
 <style lang="scss">
 @import '@/style/commons.scss';
+
+
 </style>
