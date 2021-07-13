@@ -16,11 +16,12 @@ export default{
   components:{
     Header,
     Main
+    
   },
   data(){
     return{
       urlApi: 'https://api.themoviedb.org/3/search/movie?',
-      moviesItem:[],
+      moviesItem:'',
       textSearch:''
     }
   },
