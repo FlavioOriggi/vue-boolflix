@@ -20,16 +20,19 @@ export default{
   },
   data(){
     return{
-      urlApi: 'https://api.themoviedb.org/3/search/movie?',
+      urlApi: 'https://api.themoviedb.org/3/search/',
       moviesItem:'',
-      textSearch:''
+      textSearch:'',
+      serietvItem:''
     }
   },
   methods:{
     getMovie(searchText){
-      this.textSearch = searchText
+
+      this.textSearch = searchText;
+      
       axios
-        .get(this.urlApi, {
+        .get(this.urlApi+'movie', {
           params:{
             api_key: 'd91be32ec828fa4f2c317ac78d3e0690',
             language: 'it-IT',
@@ -39,6 +42,22 @@ export default{
         .then(response => {
           console.log(response.data.results);
           this.moviesItem = response.data.results          
+        })
+        .catch(error =>{
+          console.log('Errore ', error);
+        }),
+      
+      axios
+        .get(this.urlApi+'tv', {
+          params:{
+            api_key: 'd91be32ec828fa4f2c317ac78d3e0690',
+            language: 'it-IT',
+            query: this.textSearch
+          }
+        })
+        .then(response => {
+          console.log(response.data.results);
+          this.serietvItem = response.data.results          
         })
         .catch(error =>{
           console.log('Errore ', error);

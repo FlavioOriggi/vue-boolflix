@@ -1,5 +1,4 @@
 <template>
-
     <div class="card">
         <div><span class="fw-bold">Titolo:</span> {{movie.title}}</div>
         <div><span class="fw-bold">Titolo originale:</span> {{movie.original_title}}</div>
