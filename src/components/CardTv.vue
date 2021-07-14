@@ -1,17 +1,17 @@
 <template>
     <div class="card">        
         <div>
-            <img v-if="SerieTV.poster_path" :src="'https://image.tmdb.org/t/p/w342/' + SerieTV.poster_path" >
+            <img v-if="tv.poster_path" :src="'https://image.tmdb.org/t/p/w342/' + tv.poster_path" >
             
         </div>
-        <div><span class="fw-bold">Titolo:</span> {{SerieTV.title}}</div>
-        <div><span class="fw-bold">Titolo originale:</span> {{SerieTV.original_title}}</div>
+        <div><span class="fw-bold">Titolo:</span> {{tv.title}}</div>
+        <div><span class="fw-bold">Titolo originale:</span> {{tv.original_title}}</div>
         <div class="fw-bold d-flex">
             
             <div class="me-2">Lingua: </div>
             <div>
-                <img class="flag" v-if="flagArr.includes(SerieTV.original_language)" :src="require('../assets/'+SerieTV.original_language+'.png')" :alt="SerieTV.original_language">
-                <span v-else>{{SerieTV.original_language}}</span>
+                <img class="flag" v-if="flagArr.includes(tv.original_language)" :src="require('../assets/'+tv.original_language+'.png')" :alt="tv.original_language">
+                <span v-else>{{tv.original_language}}</span>
             </div>
             
         </div>
@@ -21,8 +21,8 @@
 
 <script>
 export default {
-    name: 'CardSTv',
-    props: ['SerieTV'],
+    name: 'CardTv',
+    props: ['tv'],
     data(){
         return{
             flagArr: ['en','es','it', 'us'],

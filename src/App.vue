@@ -2,7 +2,7 @@
   <div id="app">
     <Header @search="getMovie"/>
     
-    <Main :moviesItem="moviesItem" :serietvItem="serietvItem" />    
+    <Main :moviesItem="moviesItem" :serietvItem="serietvItem" :textSearch="searchText" />    
 
   </div>
 </template>
@@ -21,8 +21,8 @@ export default{
   },
   data(){
     return{
-      moviesApi: 'https://api.themoviedb.org/3/search/movie?',
-      seriesApi : 'https://api.themoviedb.org/3/search/tv?',
+      moviesApi: 'https://api.themoviedb.org/3/search/movie',
+      seriesApi : 'https://api.themoviedb.org/3/search/tv',
       moviesItem:'',
       textSearch:'',
       serietvItem:''
@@ -35,6 +35,7 @@ export default{
       
       axios
         .get(this.moviesApi, {
+
           params:{
             api_key: 'd91be32ec828fa4f2c317ac78d3e0690',
             language: 'it-IT',
@@ -42,17 +43,13 @@ export default{
           }
         })
         .then(response => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           this.moviesItem = response.data.results          
         })
         .catch(error =>{
           console.log('Errore ', error);
-        })
-    },
+        }),
 
-    getSeries(searchText){
-      this.textSearch = searchText;
-      
       axios
         .get(this.seriesApi, {
           params:{
@@ -61,14 +58,14 @@ export default{
             query: this.textSearch
           }
         })
-        .then(find => {
-          console.log(find.data.results);
-          this.serietvItem = find.data.results          
+        .then(response => {
+          console.log(response.data.results);
+          this.serietvItem = response.data.results          
         })
         .catch(error =>{
           console.log('Errore ', error);
         })
-    }
+    }   
   }
 }
 </script>

@@ -10,7 +10,7 @@
 
                     <div class="cards-contenent pt-2">
                         <h3>Serie TV</h3>
-                        <CardSTv v-for="(item, index) in serietvItem" :key="index" :SerieTV="item"/>
+                        <CardTv v-for="(item, index) in serietvItem" :key="index" :tv="item"/>
                     </div>
                 </div>
             </div> 
@@ -20,18 +20,15 @@
 
 <script>
 import CardMovie from "@/components/CardMovie";
-import CardSTv from "@/components/CardSTv";
+import CardTv from "@/components/CardTv";
 
 
 export default {
     name: 'Main',
-    props: {
-        moviesItem : Array,
-        serietvItem : Array
-    },
+    props: [ "moviesItem", "serietvItem", "textSearch"],
     components: {
         CardMovie,
-        CardSTv        
+        CardTv        
     }
 }
 </script>
