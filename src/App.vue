@@ -2,7 +2,7 @@
   <div id="app">
     <Header @search="getMovie"/>
     
-    <Main :moviesItem="moviesItem" :serietvItem="serietvItem" :textSearch="searchText" />    
+    <Main :films="movieArray" :tv="tvArray" :textSearch="searchText" />    
 
   </div>
 </template>
@@ -23,9 +23,10 @@ export default{
     return{
       moviesApi: 'https://api.themoviedb.org/3/search/movie',
       seriesApi : 'https://api.themoviedb.org/3/search/tv',
-      moviesItem:'',
-      textSearch:'',
-      serietvItem:''
+      movieArray:'',
+      tvArray:'',
+      textSearch:''
+      
     }
   },
   methods:{
@@ -43,8 +44,8 @@ export default{
           }
         })
         .then(response => {
-          // console.log(response.data.results);
-          this.moviesItem = response.data.results          
+          console.log(response.data.results);
+          this.movie = response.data.results          
         })
         .catch(error =>{
           console.log('Errore ', error);
@@ -59,8 +60,8 @@ export default{
           }
         })
         .then(response => {
-          console.log(response.data.results);
-          this.serietvItem = response.data.results          
+          // console.log(response.data.results);
+          this.tv = response.data.results          
         })
         .catch(error =>{
           console.log('Errore ', error);

@@ -5,12 +5,12 @@
                 <div class="col">   
                     <div class="cards-contenent pt-2">
                         <h3>Films</h3>
-                        <CardMovie v-for="(item, index) in moviesItem" :key="index" :movie="item"/>
+                        <Card v-for="film in movie" :key="film.id" :info="film"/>
                     </div>
 
                     <div class="cards-contenent pt-2">
                         <h3>Serie TV</h3>
-                        <CardTv v-for="(item, index) in serietvItem" :key="index" :tv="item"/>
+                        <Card v-for="serietv in tv" :key="serietv.id" :info="serietv"/>
                     </div>
                 </div>
             </div> 
@@ -19,16 +19,19 @@
 </template>
 
 <script>
-import CardMovie from "@/components/CardMovie";
-import CardTv from "@/components/CardTv";
+// import CardMovie from "@/components/CardMovie";
+// import CardTv from "@/components/CardTv";
+import Card from "@/components/Card";
 
 
 export default {
     name: 'Main',
-    props: [ "moviesItem", "serietvItem", "textSearch"],
+    props: [ "movie", "tv", "textSearch"],
     components: {
-        CardMovie,
-        CardTv        
+        Card    
+        // CardMovie,
+        // CardTv  
+          
     }
 }
 </script>
