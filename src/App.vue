@@ -45,7 +45,7 @@ export default{
         })
         .then(response => {
           console.log(response.data.results);
-          this.movie = response.data.results          
+          this.movieArray = response.data.results          
         })
         .catch(error =>{
           console.log('Errore ', error);
@@ -61,7 +61,7 @@ export default{
         })
         .then(response => {
           // console.log(response.data.results);
-          this.tv = response.data.results          
+          this.tvArray = response.data.results          
         })
         .catch(error =>{
           console.log('Errore ', error);

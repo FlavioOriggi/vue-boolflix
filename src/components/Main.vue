@@ -10,7 +10,7 @@
 
                     <div class="cards-contenent pt-2">
                         <h3>Serie TV</h3>
-                        <Card v-for="serietv in tv" :key="serietv.id" :info="serietv"/>
+                        <Card v-for="serietv in tv" :key="serietv.id" :info="item"/>
                     </div>
                 </div>
             </div> 
@@ -26,7 +26,7 @@ import Card from "@/components/Card";
 
 export default {
     name: 'Main',
-    props: [ "movie", "tv", "textSearch"],
+    props: [ "films", "tv", "textSearch"],
     components: {
         Card    
         // CardMovie,
