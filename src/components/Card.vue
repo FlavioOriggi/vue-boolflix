@@ -1,5 +1,5 @@
 <template>
-     
+    <section>
         <div class="row">
             <div class="col">
                 <div class="card p-2">       
@@ -20,11 +20,12 @@
                             
                         </div>
                         <div><span class="fw-bold">Vote: </span> <i v-for="(star,index) in stars(info.vote_average)" :key="index"  class="fas fa-star"></i> </div> 
+                        <div><span class="fw-bold overview">Overview: </span>{{info.overview}} </div>
                     </div>           
                 </div>
             </div>
         </div>
-    
+    </section>    
 </template>
 
 <script>
@@ -46,14 +47,19 @@ export default {
 </script>
 
 <style >
-.img-card{
-    width: 150px;
+
+.card{
+    height: 450px;
+    width: 350px;
+}
+.img-card{    
+    height: 150%;
     position: relative
 }
 
-.card:hover{    
+.card-contenent:hover{    
     background-color: rgb(255, 255, 255);
-    display: block;
+    display: inline;
     cursor: pointer;
                                    
 }
@@ -65,6 +71,11 @@ export default {
 
 .flag{
     width: 15px;
+}
+
+.overview{
+    height: 50px;
+    overflow-y: hidden;
 }
 
 </style>

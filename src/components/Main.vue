@@ -45,6 +45,8 @@ export default {
 <style scoped lang="scss">>
 main{
     height: calc(100vh - 88px); 
+    width: calc(100% / 5)
+    /* non riesco a disporre in altro modo le card, ho provato a dare calc(100 / 5) a chiunque ma non mi riesce */
 }
     
     
