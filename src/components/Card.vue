@@ -17,7 +17,7 @@
                         </div>
                         
                     </div>
-                    <div><span class="fw-bold">Voto:</span> {{ starsVote }} </div> 
+                    <div><span class="fw-bold">Vote: </span> <i v-for="(star,index) in stars(info.vote_average)" :key="index"  class="fas fa-star"></i> </div> 
                 </div>           
             </div>
         </div>
@@ -35,11 +35,10 @@ export default {
         }
     },
     methods: {
-        voteImage(){
-            this.starsVote = Math.round(this.vote / 2);          
-            return this.starsVote
-        }
-    },
+        stars(vote){
+            return parseInt(Math.round(vote / 2))
+        }  
+    }
 }
 </script>
 
