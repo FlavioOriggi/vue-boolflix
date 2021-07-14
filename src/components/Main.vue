@@ -1,18 +1,24 @@
 <template>
     <main> 
         <div class="container-xl">  
-            <div class="row pt-2"> 
-                <div class="col">   
-                    <div class="cards-contenent pt-2">
-                        <h3>Films</h3>
+            <div class="row pt-2">
+                               
+                <div v-if="films.length != 0" class="col"> 
+                    <h3>Films</h3>                     
+                    <div class="cards-contenent d-flex  pt-2">
                         <Card v-for="film in films" :key="film.id" :info="film"/>
                     </div>
+                    
+                </div>
+            </div>
 
-                    <div class="cards-contenent pt-2">
-                        <h3>Serie TV</h3>
+            <div class="row pt-2">                    
+                <div v-if="tv.length != 0"  class="col">
+                    <h3>Serie TV</h3>
+                    <div class="cards-contenent pt-2 d-flex">
                         <Card v-for="serietv in tv" :key="serietv.id" :info="serietv"/>
                     </div>
-                </div>
+                </div>                    
             </div> 
         </div>
     </main>
@@ -36,5 +42,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">>
+main{
+    height: calc(100vh - 88px); 
+}
+    
+    
+
+
 </style>

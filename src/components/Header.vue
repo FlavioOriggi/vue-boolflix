@@ -1,12 +1,18 @@
 <template>
-    <header class="text-center bg-dark">
-        <h1 class="py-3 text-danger">Boolflix</h1>
-
-        <div class="search-bar pb-3">
-            <input type="text" v-model.trim="textSearch">
-            <button @click="$emit('search', textSearch)" class="px-2 bg-white">Cerca </button>
-        </div> 
-
+    <header class="bg-dark">
+        <div class="container-xl">
+            <div class="row d-flex">
+                <div class="col-6">
+                    <h1 class="py-3 text-danger">Boolflix</h1>
+                </div>
+                <div class="col-6  align-self-center">
+                    <div class="search-bar d-flex justify-content-end">
+                        <input type="text" v-model.trim="textSearch" placeholder="Cerca un titolo" class=" text-white bg-dark border-light">
+                        <button @click="$emit('search', textSearch)" class="text-white bg-dark px-2 border-light">Cerca </button>
+                    </div> 
+                </div>
+            </div> 
+       </div> 
     </header>
 </template>
 
@@ -21,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 /* .search-bar{
     
 } */
