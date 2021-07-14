@@ -5,12 +5,12 @@
                 <div class="col">   
                     <div class="cards-contenent pt-2">
                         <h3>Films</h3>
-                        <Card v-for="film in movie" :key="film.id" :info="film"/>
+                        <Card v-for="film in films" :key="film.id" :info="film"/>
                     </div>
 
                     <div class="cards-contenent pt-2">
                         <h3>Serie TV</h3>
-                        <Card v-for="serietv in tv" :key="serietv.id" :info="item"/>
+                        <Card v-for="serietv in tv" :key="serietv.id" :info="serietv"/>
                     </div>
                 </div>
             </div> 
